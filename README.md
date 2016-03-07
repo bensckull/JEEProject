@@ -23,7 +23,7 @@ sudo yum install git
 ###Ajouter le repo et rediriger les push sur le repo commun
 
 ```Bash
-git remote add upstream https://github.com/Ant-32014/PL3-qwerty654321
+git remote add upstream https://github.com/bensckull/JEEProject
 git fetch upstream
 ```
 
