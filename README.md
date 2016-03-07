@@ -35,7 +35,7 @@ En seulement 4 étapes !
 
 ```Bash
 cd "Le chemin vers le dossier cloné"
-git pull https://github.com/Ant-32014/PL3-qwerty654321.git
+git pull https://github.com/bensckull/JEEProject.git
 ```
 **Rep tant que "Travail non finit"**
 
@@ -49,7 +49,7 @@ git commit -a
 
 4.Pusher votre travail (Mettre à jour le repo)
 ```Bash
-git push https://github.com/Ant-32014/PL3-qwerty654321.git
+git push https://github.com/bensckull/JEEProject.git
 ```
 
 #Voila !
