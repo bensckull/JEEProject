@@ -7,6 +7,6 @@
     </head>
     <body>
         <%@ include file="menu.jsp" %>
-        <p>Bienvenue sur mon site !</p>
+        <p>Bienvenue sur notre site !</p>
     </body>
 </html>

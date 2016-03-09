@@ -3,7 +3,7 @@
    
   <servlet>
     <servlet-name>Accueil</servlet-name>
-    <servlet-class>com.octest.servlets.Accueil</servlet-class>
+    <servlet-class>com.crowdfundingServlets.Accueil</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
