@@ -27,13 +27,7 @@ public class Inscription extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utilisateur utilisateur1 = new Utilisateur();
-		utilisateur1.setNom("Makoundou");
-		utilisateur1.setPrenom("Deuneuv");
-		utilisateur1.setAge(25);
-		utilisateur1.setActive(true);
 		
-		request.setAttribute("user1", utilisateur1);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
 	}
 

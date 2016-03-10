@@ -1,6 +1,12 @@
 package com.crowdfundingProjectBeans;
 
+@SuppressWarnings("serial")
 public class Utilisateur implements java.io.Serializable{
+	private String Prenom;
+	private int age;
+	private String pseudo;
+	private String adresse;
+	private boolean actif;
 	
 	public Utilisateur() {
 		super();
@@ -36,16 +42,11 @@ public class Utilisateur implements java.io.Serializable{
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public boolean isActive() {
-		return active;
+	public boolean isActif() {
+		return actif;
 	}
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setActif(boolean actif) {
+		this.actif = actif;
 	}
-	private String Prenom;
-	private int age;
-	private String pseudo;
-	private String adresse;
-	private boolean active;
-	
+
 }

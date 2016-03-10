@@ -8,21 +8,13 @@
     <servlet-name>Accueil</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Inscription</servlet-name>
-    <servlet-class>com.crowdfundingServlets.Inscription</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Inscription</servlet-name>
-    <url-pattern>/inscription</url-pattern>
-  </servlet-mapping>
   
   <servlet>
-    <servlet-name>ListeUtilisateurs</servlet-name>
-    <servlet-class>com.crowdfundingServlets.ListeUtilisateurs</servlet-class>
+  	<servlet-name>Inscription</servlet-name>
+  	<servlet-class>com.crowdfundingServlets.Inscription</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ListeUtilisateurs</servlet-name>
-    <url-pattern>/listeUtilisateurs</url-pattern>
+  	<servlet-name>Inscription</servlet-name>
+  	<url-pattern>/inscription</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -6,11 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Inscription</title>
+<title>Utilisateurs récents</title>
 </head>
 <body>
-        <%@ include file="menu.jsp" %>
-	<h2>Inscription</h2>
-	Ici sera le formulaire d'inscription
+	<h3>Liste des utilisateurs</h3>
+	<ul>
+		<li> ${user2.nom} ${user2.prenom} age ${user2.age} ans </li>
+		<li> ${user1.nom} ${user1.prenom} age ${user1.age} ans </li>
+	</ul>
+
 </body>
 </html>
