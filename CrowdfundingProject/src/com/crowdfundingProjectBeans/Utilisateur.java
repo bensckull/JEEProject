@@ -1,7 +1,10 @@
 package com.crowdfundingProjectBeans;
 
-public class Utilisateur {
+public class Utilisateur implements java.io.Serializable{
 	
+	public Utilisateur() {
+		super();
+	}
 	private String nom;
 	public String getNom() {
 		return nom;
