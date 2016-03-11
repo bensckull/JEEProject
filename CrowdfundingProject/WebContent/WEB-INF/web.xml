@@ -17,4 +17,14 @@
   	<servlet-name>Inscription</servlet-name>
   	<url-pattern>/inscription</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Connexion</servlet-name>
+    <servlet-class>com.crowdfundingServlets.Connexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Connexion</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+
 </web-app>
