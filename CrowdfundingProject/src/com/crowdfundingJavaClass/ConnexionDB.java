@@ -7,20 +7,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ConnexionDB {
-	private String DBPath = "Chemin aux base de donnée SQLite";
+	private String url = "jdbc:mysql://localhost:3306/crowdfundingproject";
+	private String user = "root";
+	private String mdp = "hermione";
 	private Connection connection = null;
 	private Statement statement = null;
 
-	public ConnexionDB(String dBPath) {
-		DBPath = dBPath;
+	public ConnexionDB() {
 	}
 
 	public void connect() {
 		try {
-			Class.forName("org.sqlite.JDBC");
-			connection = DriverManager.getConnection("jdbc:sqlite:" + DBPath);
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(url, user, mdp);
 			statement = connection.createStatement();
-			System.out.println("Connexion a " + DBPath + " réussi");
+			System.out.println("Connexion a la BDD réussi");
 		} catch (ClassNotFoundException notFoundException) {
 			notFoundException.printStackTrace();
 			System.out.println("Erreur de connecxion");

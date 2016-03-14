@@ -23,7 +23,7 @@ public class ListeUtilisateurs extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ConnexionDB connexion = new ConnexionDB("/home/etudiant/git/JEEProject/CrowdfundingProject/databases/crowdfundingproject.db");
+		ConnexionDB connexion = new ConnexionDB();
 		connexion.connect();
 		ResultSet resultSet = connexion.query("SELECT * FROM utilisateur;");
 		try {
@@ -53,7 +53,6 @@ public class ListeUtilisateurs extends HttpServlet {
 		connexion.close();
         this.getServletContext().getRequestDispatcher("/WEB-INF/listeUtilisateurs.jsp").forward(request, response);
 
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
