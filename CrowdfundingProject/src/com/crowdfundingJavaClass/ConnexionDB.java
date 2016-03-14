@@ -8,8 +8,8 @@ import java.sql.Statement;
 
 public class ConnexionDB {
 	private String url = "jdbc:mysql://localhost:3306/crowdfundingproject";
-	private String user = "root";
-	private String mdp = "hermione";
+	private String user = "admin";
+	private String mdp = "admin";
 	private Connection connection = null;
 	private Statement statement = null;
 
