@@ -26,5 +26,14 @@
     <servlet-name>Connexion</servlet-name>
     <url-pattern>/connexion</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Deconnexion</servlet-name>
+    <servlet-class>com.crowdfundingServlets.Deconnexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deconnexion</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
 
 </web-app>
