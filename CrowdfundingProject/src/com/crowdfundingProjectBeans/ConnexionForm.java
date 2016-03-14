@@ -33,7 +33,7 @@ public final class ConnexionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_EMAIL, e.getMessage() );
         }
-        utilisateur.setAdresse( email );
+        utilisateur.setEmail( email );
 
         // Validation du champ mot de passe. //
         try {
@@ -42,7 +42,7 @@ public final class ConnexionForm {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
         
-        //utilisateur.setMotDePasse( motDePasse );
+        utilisateur.setMotDePasse( motDePasse );
 
         // Initialisation du résultat global de la validation. //
         if ( erreurs.isEmpty() ) {
