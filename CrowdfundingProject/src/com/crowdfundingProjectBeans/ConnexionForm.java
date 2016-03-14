@@ -1,4 +1,4 @@
-package com.crowdfundingServlets;
+package com.crowdfundingProjectBeans;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +19,7 @@ public final class ConnexionForm {
     public Map<String, String> getErreurs() {
         return erreurs;
     }
-/*
+
     public Utilisateur connecterUtilisateur( HttpServletRequest request ) {
         // Récupération des champs du formulaire //
         String email = getValeurChamp( request, CHAMP_EMAIL );
@@ -33,7 +33,7 @@ public final class ConnexionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_EMAIL, e.getMessage() );
         }
-        utilisateur.setEmail( email );
+        utilisateur.setAdresse( email );
 
         // Validation du champ mot de passe. //
         try {
@@ -41,7 +41,8 @@ public final class ConnexionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
-        utilisateur.setMotDePasse( motDePasse );
+        
+        //utilisateur.setMotDePasse( motDePasse );
 
         // Initialisation du résultat global de la validation. //
         if ( erreurs.isEmpty() ) {
@@ -52,7 +53,7 @@ public final class ConnexionForm {
 
         return utilisateur;
     }
-*/
+
     /**
      * Valide l'adresse email saisie.
      */
