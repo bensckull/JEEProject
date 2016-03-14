@@ -2,18 +2,19 @@ package com.crowdfundingProjectBeans;
 
 @SuppressWarnings("serial")
 public class Utilisateur implements java.io.Serializable{
-	private String Prenom;
+	
+	private String nom;
+	private String prenom;
 	private int age;
 	private String pseudo;
 	private String adresse;
-	private String Email;
-	private String MotDePasse;
+	private String email; //les attributs s'écrivent avec une minuscule en début
+	private String motDePasse;
 	private boolean actif;
 	
 	public Utilisateur() {
 		super();
 	}
-	private String nom;
 	public String getNom() {
 		return nom;
 	}
@@ -21,10 +22,10 @@ public class Utilisateur implements java.io.Serializable{
 		this.nom = nom;
 	}
 	public String getPrenom() {
-		return Prenom;
+		return prenom;
 	}
 	public void setPrenom(String prenom) {
-		Prenom = prenom;
+		this.prenom = prenom;
 	}
 	public int getAge() {
 		return age;
@@ -45,16 +46,16 @@ public class Utilisateur implements java.io.Serializable{
 		this.adresse = adresse;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		this.Email = email;
+		this.email = email;
 	}
 	public String getMotDePasse() {
-		return MotDePasse;
+		return motDePasse;
 	}
 	public void setMotDePasse(String motdepasse) {
-		this.MotDePasse = motdepasse;
+		this.motDePasse = motdepasse;
 	}
 	public boolean isActif() {
 		return actif;
