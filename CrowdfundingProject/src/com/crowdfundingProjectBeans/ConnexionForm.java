@@ -6,8 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 public final class ConnexionForm {
-    private static final String CHAMP_EMAIL  = "email";
-    private static final String CHAMP_PASS   = "motdepasse";
+    private static final String CHAMP_EMAIL  = "email@email.fr";
+    private static final String CHAMP_PASS   = "MotDePasse";
 
     private String              resultat;
     private Map<String, String> erreurs      = new HashMap<String, String>();
@@ -33,7 +33,7 @@ public final class ConnexionForm {
         } catch ( Exception e ) {
             setErreur( CHAMP_EMAIL, e.getMessage() );
         }
-        utilisateur.setAdresse( email );
+        utilisateur.setEmail( email );
 
         // Validation du champ mot de passe. //
         try {
@@ -42,7 +42,7 @@ public final class ConnexionForm {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
         
-        //utilisateur.setMotDePasse( motDePasse );
+        utilisateur.setMotDePasse( motDePasse );
 
         // Initialisation du résultat global de la validation. //
         if ( erreurs.isEmpty() ) {
@@ -50,7 +50,7 @@ public final class ConnexionForm {
         } else {
             resultat = "Échec de la connexion.";
         }
-
+        utilisateur.setActive(true);
         return utilisateur;
     }
 

@@ -30,11 +30,17 @@ public class Utilisateur implements java.io.Serializable{
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
-	public String getAdresse() {
-		return adresse;
+	public String getEmail() {
+		return email;
 	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
+	public void setEmail(String Email) {
+		this.email = Email;
+	}
+	public String getMotDePasse() {
+		return MotDePasse;
+	}
+	public void setMotDePasse(String MotDePasse) {
+		this.MotDePasse = MotDePasse;
 	}
 	public boolean isActive() {
 		return active;
@@ -45,7 +51,8 @@ public class Utilisateur implements java.io.Serializable{
 	private String Prenom;
 	private int age;
 	private String pseudo;
-	private String adresse;
+	private String email;
+	private String MotDePasse;
 	private boolean active;
 	
 }
