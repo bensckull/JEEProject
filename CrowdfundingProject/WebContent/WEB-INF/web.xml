@@ -16,7 +16,6 @@
     <servlet-name>Inscription</servlet-name>
     <url-pattern>/inscription</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ListeUtilisateurs</servlet-name>
     <servlet-class>com.crowdfundingServlets.ListeUtilisateurs</servlet-class>
@@ -25,7 +24,6 @@
     <servlet-name>ListeUtilisateurs</servlet-name>
     <url-pattern>/listeUtilisateurs</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Connexion</servlet-name>
     <servlet-class>com.crowdfundingServlets.Connexion</servlet-class>
@@ -34,7 +32,6 @@
     <servlet-name>Connexion</servlet-name>
     <url-pattern>/connexion</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Deconnexion</servlet-name>
     <servlet-class>com.crowdfundingServlets.Deconnexion</servlet-class>
@@ -43,5 +40,20 @@
     <servlet-name>Deconnexion</servlet-name>
     <url-pattern>/deconnexion</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <servlet-name>ListeProjets</servlet-name>
+    <servlet-class>com.crowdfundingServlets.ListeProjets</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListeProjets</servlet-name>
+    <url-pattern>/listeProjets</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>Projet</servlet-name>
+    <servlet-class>com.crowdfundingServlets.Projet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Projet</servlet-name>
+    <url-pattern>/projet</url-pattern>
+  </servlet-mapping>
 </web-app>

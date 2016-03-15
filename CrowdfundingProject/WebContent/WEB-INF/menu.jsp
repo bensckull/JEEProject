@@ -17,7 +17,7 @@
             <li><a href="/CrowdfundingProject/inscription">Inscription</a></li>
             <li><a href="/CrowdfundingProject/connexion">Connexion</a></li>
             <li><a href="/CrowdfundingProject/listeUtilisateurs">Utilisateurs récents</a></li>
-            
+            <li><a href="/CrowdfundingProject/listeProjets">Projets</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
