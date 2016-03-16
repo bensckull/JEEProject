@@ -1,4 +1,4 @@
-package com.crowdfundingServlets;
+package com.crowdfunding.servlets;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.crowdfundingProjectBeans.ConnexionForm;
-import com.crowdfundingProjectBeans.Utilisateur;
+import com.crowdfunding.beans.ConnexionForm;
+import com.crowdfunding.beans.Utilisateur;
 
 
 public class Connexion extends HttpServlet {

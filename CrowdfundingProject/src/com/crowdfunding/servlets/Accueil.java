@@ -1,4 +1,4 @@
-package com.crowdfundingServlets;
+package com.crowdfunding.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

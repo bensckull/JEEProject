@@ -1,4 +1,4 @@
-package com.crowdfundingJavaClass;
+package com.crowdfunding.javaClass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com.crowdfundingProjectBeans;
+package com.crowdfunding.beans;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,7 +42,7 @@ public final class ConnexionForm {
             setErreur( CHAMP_PASS, e.getMessage() );
         }
         
-        utilisateur.setMotDePasse( motDePasse );
+        utilisateur.setMotdepasse( motDePasse );
 
         // Initialisation du résultat global de la validation. //
         if ( erreurs.isEmpty() ) {

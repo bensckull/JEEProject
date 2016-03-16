@@ -1,4 +1,5 @@
-package com.crowdfundingProjectBeans;
+package com.crowdfunding.beans;
+import java.sql.Timestamp;
 
 @SuppressWarnings("serial")
 public class Utilisateur implements java.io.Serializable{
@@ -8,10 +9,17 @@ public class Utilisateur implements java.io.Serializable{
 	private int age;
 	private String pseudo;
 	private String adresse;
-	private String email; //les attributs s'écrivent avec une minuscule en début
-	private String motDePasse;
+	private String email; 
+	private String motdepasse;
 	private boolean actif;
-	
+    private Timestamp dateInscription;
+    
+	public Timestamp getDateInscription() {
+		return dateInscription;
+	}
+	public void setDateInscription(Timestamp dateInscription) {
+		this.dateInscription = dateInscription;
+	}
 	public Utilisateur() {
 		super();
 	}
@@ -51,11 +59,11 @@ public class Utilisateur implements java.io.Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getMotDePasse() {
-		return motDePasse;
+	public String getMotdepasse() {
+		return motdepasse;
 	}
-	public void setMotDePasse(String motdepasse) {
-		this.motDePasse = motdepasse;
+	public void setMotdepasse(String motdepasse) {
+		this.motdepasse = motdepasse;
 	}
 	public boolean isActif() {
 		return actif;

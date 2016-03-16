@@ -1,4 +1,4 @@
-package com.crowdfundingServlets;
+package com.crowdfunding.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Inscription
+ * Servlet implementation class ListeProjets
  */
-@WebServlet("/Inscription")
-public class Inscription extends HttpServlet {
+@WebServlet("/ListeProjets")
+public class ListeProjets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Inscription() {
+    public ListeProjets() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -25,9 +25,9 @@ public class Inscription extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/listeProjets.jsp").forward(request, response);
 	}
 
 	/**
@@ -35,6 +35,7 @@ public class Inscription extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
