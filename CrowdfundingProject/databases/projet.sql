@@ -5,11 +5,11 @@ CREATE TABLE IF NOT EXISTS `projet` (
   	`dateFin` date NOT NULL,
   	`description` varchar(255) NOT NULL,
 	`montantRecolte` int(11) DEFAULT '0',
-  	`idProjet` int(11) NOT NULL IDENTITY(1698, 1),
+  	`idProjet` int(11) NOT NULL AUTO_INCREMENT,
 	`idPromoteur` int(11) NOT NULL,
   	PRIMARY KEY (`idProjet`),
   	FOREIGN KEY (`idPromoteur`) REFERENCES `utilisateur`(`idUser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table définissant un projet du site.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1698 COMMENT='Table définissant un projet du site.';
 
 
 CREATE TABLE IF NOT EXISTS `participant` (
