@@ -50,7 +50,7 @@
             <div class="col-lg-2">
               <div class="row">
 				  <div class="container">
-				    <h3>Participer3</h3>
+				    <h3>Participer</h3>
 				    <p><a class="btn btn-info btn-lg" role="button">Cliquez Maintenant !  <span class="glyphicon glyphicon glyphicon-hand-right"></span></a></p>
 				  </div>
               </div>
