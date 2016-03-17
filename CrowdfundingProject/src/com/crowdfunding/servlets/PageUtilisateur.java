@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PageUtilisateur")
 public class PageUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	public static final String VUE             = "/WEB-INF/pageUtilisateur.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,7 +27,7 @@ public class PageUtilisateur extends HttpServlet {
 	 */
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/pageUtilisateur.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
 	/**

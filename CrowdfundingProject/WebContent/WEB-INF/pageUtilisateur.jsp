@@ -21,27 +21,58 @@
 	 
 	 <div class="row">
      	<div class="col-lg-offset-1 col-lg-3">
-     		<h1>Pseudo</h1>
+     		<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
+	        	<p class="succes">Nom : ${sessionScope.sessionUtilisateur.nom}</p>
+	        </c:if>
      	</div>
      </div>
      
      <div class="row">
      	<div class="col-lg-offset-1 col-lg-3">
-     		Premon
+     		<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
+	        	<p class="succes">Prénom : ${sessionScope.sessionUtilisateur.prenom}</p>
+	        </c:if>
      	</div>
      </div>
      
      <div class="row">
      	<div class="col-lg-offset-1 col-lg-3">
-     		Nom
+     		<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
+	        	<p class="succes">Age : ${sessionScope.sessionUtilisateur.age}</p>
+	        </c:if>
      	</div>
      </div>
      
      <div class="row">
      	<div class="col-lg-offset-1 col-lg-3">
-     		mail@mail.mail
+     		<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
+	        	<p class="succes">Pseudo : ${sessionScope.sessionUtilisateur.pseudo}</p>
+	        </c:if>
      	</div>
      </div>
+     
+     <div class="row">
+     	<div class="col-lg-offset-1 col-lg-3">
+     		<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
+	        	<p class="succes">Adresse : ${sessionScope.sessionUtilisateur.adresse}</p>
+	        </c:if>
+     	</div>
+     </div>
+     
+     <div class="row">
+     	<div class="col-lg-offset-1 col-lg-3">
+     		<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
+	        	<p class="succes">Email : ${sessionScope.sessionUtilisateur.email}</p>
+	        </c:if>
+     	</div>
+     </div>
+     
      
      <div class="row">
      	<div class="col-lg-offset-1 col-lg-3">
