@@ -12,7 +12,15 @@ public class Utilisateur implements java.io.Serializable{
 	private String email; 
 	private String motdepasse;
 	private boolean actif;
-    private Timestamp dateInscription;
+	private int id;
+	private Timestamp dateInscription;
+
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
     
 	public Timestamp getDateInscription() {
 		return dateInscription;

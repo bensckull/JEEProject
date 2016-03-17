@@ -35,12 +35,12 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
             if ( statut == 0 ) {
                 throw new DAOException( "Échec de la création de l'utilisateur, aucune ligne ajoutée dans la table." );
             }
-            /*valeursAutoGenerees = preparedStatement.getGeneratedKeys();
-            if ( valeursAutoGenerees.next() ) {
-                utilisateur.setId( valeursAutoGenerees.getLong( 1 ) );
-            } else {
-                throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
-            }*/
+//            valeursAutoGenerees = preparedStatement.getGeneratedKeys();
+//            if ( valeursAutoGenerees.next() ) {
+//                utilisateur.setId( valeursAutoGenerees.getInt(10);	//notre id n'est pas auto généré
+//            } else {
+//                throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
+//            }
         } catch ( SQLException e ) {
             throw new DAOException( e );
         } finally {
