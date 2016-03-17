@@ -1,15 +1,14 @@
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `nom` varchar(30) NOT NULL,
-  `prenom` varchar(30) NOT NULL,
-  `pseudo` varchar(20) DEFAULT NULL,
-  `email` varchar(30) NOT NULL,
-  `motdepasse` char(56) NOT NULL,
-  `dateInscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `idUser` int(11) int NOT NULL IDENTITY(2016, 1),
-  `age` int(11),
-  `actif` tinyint(1) DEFAULT '0' COMMENT 'définit si un utilisateur est en ligne. Par défaut, false.',
-  `adresse` varchar(40),
-  `photoProfil` VARBINARY(MAX),
-  PRIMARY KEY (`idUser`)
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Table définissant un utilisateur du site.';
-
+  CREATE TABLE IF NOT EXISTS  `utilisateur` (
+ `nom` VARCHAR( 30 ) NOT NULL ,
+ `prenom` VARCHAR( 30 ) NOT NULL ,
+ `pseudo` VARCHAR( 20 ) DEFAULT NULL ,
+ `email` VARCHAR( 30 ) NOT NULL ,
+ `motdepasse` CHAR( 56 ) NOT NULL ,
+ `dateInscription` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+ `idUser` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+ `age` INT( 11 ) ,
+ `actif` TINYINT( 1 ) DEFAULT  '0' COMMENT  'définit si un utilisateur est en ligne. Par défaut, false.',
+ `adresse` VARCHAR( 40 ) ,
+ `photoProfil` VARBINARY( 255 ) ,
+PRIMARY KEY (  `idUser` )
+) ENGINE = INNODB DEFAULT CHARSET = utf8 AUTO_INCREMENT =2016 COMMENT =  'Table définissant un utilisateur du site.'
