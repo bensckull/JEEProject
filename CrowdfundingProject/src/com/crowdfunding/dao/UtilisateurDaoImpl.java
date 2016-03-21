@@ -5,15 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.xml.crypto.Data;
 
 public class UtilisateurDaoImpl implements UtilisateurDao {
 
-	private static final String SQL_SELECT_PAR_EMAIL = "SELECT pseudo, email, nom, prenom, motdepasse FROM utilisateur WHERE email = ?";
+	private static final String SQL_SELECT_PAR_EMAIL = "SELECT nom, prenom, pseudo, motdepasse, idUser, dateInscription FROM utilisateur WHERE email = 'divine@email.com'";
     private static final String SQL_INSERT           = "INSERT INTO utilisateur (nom, prenom, pseudo, email, motdepasse) VALUES (?, ?, ?, ?, ?)";
 
     private DAOFactory          daoFactory;
@@ -24,7 +19,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
     @Override
     public Utilisateur trouver( String email ) throws DAOException {
-        return trouver( SQL_SELECT_PAR_EMAIL, email );
+    	
+    	return trouver( SQL_SELECT_PAR_EMAIL, email );
     }
 
     @Override
@@ -40,12 +36,12 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
             if ( statut == 0 ) {
                 throw new DAOException( "Échec de la création de l'utilisateur, aucune ligne ajoutée dans la table." );
             }
-            valeursAutoGenerees = preparedStatement.getGeneratedKeys();
-            if ( valeursAutoGenerees.next() ) {
-                utilisateur.setId( valeursAutoGenerees.getInt("idUser"));	//notre id n'est pas auto généré
-            } else {
-                throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
-            }
+//            valeursAutoGenerees = preparedStatement.getGeneratedKeys();
+//            if ( valeursAutoGenerees.next() ) {
+//                utilisateur.setId( valeursAutoGenerees.getInt("idUser"));	//notre id n'est pas auto généré
+//            } else {
+//                throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
+//            }
         } catch ( SQLException e ) {
             throw new DAOException( e );
         } finally {
@@ -62,19 +58,17 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Utilisateur utilisateur = null;
+        Utilisateur utilisateur = new Utilisateur();
+        
 
         try {
             connexion = daoFactory.getConnection();
-            /*
-             * Préparation de la requête avec les objets passés en arguments
-             * (ici, uniquement une adresse email) et exécution.
-             */
-            preparedStatement = initialisationRequetePreparee( connexion, sql, false, objets );
+            preparedStatement = initialisationRequetePreparee(connexion, sql, false, objets );
             resultSet = preparedStatement.executeQuery();
             /* Parcours de la ligne de données retournée dans le ResultSet */
             if ( resultSet.next() ) {
-                utilisateur = map( resultSet );
+                utilisateur = map(resultSet);
+            	
             }
         } catch ( SQLException e ) {
             throw new DAOException( e );
@@ -90,14 +84,15 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
      * mapping) entre une ligne issue de la table des utilisateurs (un
      * ResultSet) et un bean Utilisateur.
      */
-    private static Utilisateur map( ResultSet resultSet ) throws SQLException {
+    private static Utilisateur map(ResultSet resultSet ) throws SQLException {
         Utilisateur utilisateur = new Utilisateur();
-       // utilisateur.setId( resultSet.getLong( "id" ) ); //on utilise pas id de l'utilisateur pour l'instant
-        utilisateur.setEmail( resultSet.getString( "email" ) );
-        utilisateur.setMotdepasse( resultSet.getString( "motdepasse" ) );
-        utilisateur.setNom( resultSet.getString( "nom" ) );
+        utilisateur.setId(resultSet.getInt("idUser")); 
+        utilisateur.setEmail(resultSet.getString("email"));
+        utilisateur.setMotdepasse(resultSet.getString( "motdepasse" ));
+        utilisateur.setNom(resultSet.getString( "nom" ));
         utilisateur.setPseudo(resultSet.getString("pseudo"));
-        utilisateur.setDateInscription( resultSet.getTimestamp( "dateInscription" ) );
+        utilisateur.setPrenom(resultSet.getString("prenom"));
+        utilisateur.setDateInscription(resultSet.getTimestamp("dateInscription"));
         return utilisateur;
     }
 }

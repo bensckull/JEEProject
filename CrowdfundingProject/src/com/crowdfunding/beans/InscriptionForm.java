@@ -16,6 +16,8 @@ public final class InscriptionForm {
     private static final String CHAMP_PASS       = "motdepasse";
     private static final String CHAMP_CONF       = "confirmation";
     private static final String CHAMP_PSEUDO     = "pseudo";
+    private static final String CHAMP_PRENOM	 = "prenom";
+    private static final String CHAMP_NOM		= "nom";
 
     private static final String ALGO_CHIFFREMENT = "SHA-256";
 
@@ -39,14 +41,18 @@ public final class InscriptionForm {
         String email = getValeurChamp( request, CHAMP_EMAIL );
         String motDePasse = getValeurChamp( request, CHAMP_PASS );
         String confirmation = getValeurChamp( request, CHAMP_CONF );
-        String nom = getValeurChamp( request, CHAMP_PSEUDO );
+        String pseudo = getValeurChamp( request, CHAMP_PSEUDO );
+        String prenom = getValeurChamp(request, CHAMP_PRENOM);
+        String nom = getValeurChamp(request, CHAMP_NOM);
 
         Utilisateur utilisateur = new Utilisateur();
         try {
             traiterEmail( email, utilisateur );
             traiterMotsDePasse( motDePasse, confirmation, utilisateur );
             traiterNom( nom, utilisateur );
-
+            traiterPrenom(prenom, utilisateur);
+            traiterPseudo(pseudo, utilisateur);
+            
             if ( erreurs.isEmpty() ) {
                 utilisateurDao.creer( utilisateur );
                 resultat = "Succès de l'inscription.";
@@ -61,10 +67,6 @@ public final class InscriptionForm {
         return utilisateur;
     }
 
-    /*
-     * Appel à la validation de l'adresse email reçue et initialisation de la
-     * propriété email du bean
-     */
     private void traiterEmail( String email, Utilisateur utilisateur ) {
         try {
             validationEmail( email );
@@ -107,6 +109,24 @@ public final class InscriptionForm {
         }
         utilisateur.setNom( nom );
     }
+    private void traiterPrenom(String prenom, Utilisateur utilisateur){
+    	try {
+			validationPrenom(prenom);
+		} catch (FormValidationException e) {
+			setErreur(CHAMP_PRENOM, e.getMessage());
+		}
+    	utilisateur.setPrenom(prenom);
+    }
+    
+    private void traiterPseudo(String pseudo, Utilisateur utilisateur){
+    	try{
+    		validationPseudo(pseudo);
+    	}
+    	catch(FormValidationException e){
+    		setErreur(CHAMP_PSEUDO, e.getMessage());
+    	}
+    	utilisateur.setPseudo(pseudo);
+    }
 
     /* Validation de l'adresse email */
     private void validationEmail( String email ) throws FormValidationException {
@@ -138,6 +158,23 @@ public final class InscriptionForm {
         if ( nom != null && nom.length() < 3 ) {
             throw new FormValidationException( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
         }
+    }
+
+    private void validationPrenom( String prenom ) throws FormValidationException {
+        if ( prenom != null && prenom.length() < 3 ) {
+            throw new FormValidationException( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
+        }
+        if(prenom==null)
+        	throw new FormValidationException("Vous devez entrer impérativement un prenom");
+    }
+    private void validationPseudo( String pseudo ) throws FormValidationException {
+        if ( pseudo != null && pseudo.length() < 3 ) {
+            throw new FormValidationException( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
+        }
+//        if(pseudo==null){
+//        	throw new FormValidationException("Vous devez entrer impérativement un pseudo");
+//        	
+//        }
     }
 
     private void setErreur( String champ, String message ) {

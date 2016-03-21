@@ -23,17 +23,15 @@
                 <legend>Connexion</legend>
                 
                 <div class="row">
-                <div class="col-lg-offset-1 col-lg-3">Vous pouvez vous connecter via ce formulaire.</div>
+                <div class="col-lg-offset-1 col-lg-3">${formInscription.resultat}</div>
                 </div>
-                
                 <br>
-
                 
                 <div class="row">
                 	<div class="col-lg-offset-1 col-lg-3">
 	                <label for="nom">Adresse email <span class="requis">*</span></label>
 	                <input type="email" id="email" name="email" class="form-control" value="<c:out value="${utilisateur.email}"/>" size="20" maxlength="60" />
-	                <span class="erreur">${form.erreurs['email']}</span>
+	                <span class="erreur">${formConnexion.erreurs['email']}</span>
 	                </div>
                 </div>
                 
@@ -44,7 +42,7 @@
                 	<div class="col-lg-offset-1 col-lg-3">
 	                <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
 	                <input type="password" id="motdepasse" name="motdepasse" class="form-control" value="" size="20" maxlength="20" />
-	                <span class="erreur">${form.erreurs['motdepasse']}</span>
+	                <span class="erreur">${formConnexion.erreurs['motdepasse']}</span>
 	                </div>
                 </div>
                 
@@ -53,7 +51,7 @@
                 <div class="row">
                 	<div class="col-lg-offset-3 col-lg-3">
 	                <input type="submit" value="Connexion" class="sansLabel" />
-	                <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+	                <p class="${empty formconnexion.erreurs ? 'succes' : 'erreur'}">${formConnexion.resultat}</p>
 	                <%-- Vérification de la présence d'un objet utilisateur en session --%>
 	                </div>
 	                <c:if test="${!empty sessionScope.sessionUtilisateur}">
