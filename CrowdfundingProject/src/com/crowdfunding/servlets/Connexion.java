@@ -47,6 +47,6 @@ public class Connexion extends HttpServlet {
         request.setAttribute( ATT_FORM, form );
         request.setAttribute( ATT_USER, utilisateur );
 
-        this.getServletContext().getRequestDispatcher(VUE2).forward( request, response );
+        this.getServletContext().getRequestDispatcher(VUE1).forward( request, response );
     }
 }

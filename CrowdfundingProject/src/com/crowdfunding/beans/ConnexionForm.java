@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import com.crowdfunding.dao.UtilisateurDao;
 import com.crowdfunding.javaClass.FormValidationException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.jasypt.util.password.ConfigurablePasswordEncryptor;
@@ -41,7 +40,7 @@ public final class ConnexionForm {
         traiterEmail(email);
         traiterMotDePasse(motDePasse);
         
-        if (erreurs.isEmpty()) {
+       // if(erreurs.isEmpty()) {
         	utilisateur = utilisateurDao.trouver(email);
         	if(utilisateur!=null){
         		ConfigurablePasswordEncryptor passwordEncryptor = new ConfigurablePasswordEncryptor();
@@ -56,12 +55,13 @@ public final class ConnexionForm {
                 }
         	}
         	else{
-        		resultat = "Utilisateur inconnu";
+        		resultat = "Utilisateur inconnu - Echec de la connexion";
+        		
         	}
             
-        } else {
-            resultat = "Échec de la connexion.";
-        }
+//        } else {
+//            resultat = "Échec de la connexion.";
+//        }
         return utilisateur;
     }
 

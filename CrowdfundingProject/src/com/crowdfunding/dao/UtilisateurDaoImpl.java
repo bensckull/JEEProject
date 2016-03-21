@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class UtilisateurDaoImpl implements UtilisateurDao {
 
-	private static final String SQL_SELECT_PAR_EMAIL = "SELECT nom, prenom, pseudo, motdepasse, idUser, dateInscription FROM utilisateur WHERE email = ?";
+	private static final String SQL_SELECT_PAR_EMAIL = "SELECT nom, prenom, pseudo, motdepasse, idUser, dateInscription FROM utilisateur WHERE email = 'divine@email.com'";
     private static final String SQL_INSERT           = "INSERT INTO utilisateur (nom, prenom, pseudo, email, motdepasse) VALUES (?, ?, ?, ?, ?)";
 
     private DAOFactory          daoFactory;
@@ -19,7 +19,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
     @Override
     public Utilisateur trouver( String email ) throws DAOException {
-        return trouver( SQL_SELECT_PAR_EMAIL, email );
+    	
+    	return trouver( SQL_SELECT_PAR_EMAIL, email );
     }
 
     @Override
@@ -57,16 +58,17 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Utilisateur utilisateur = null;
+        Utilisateur utilisateur = new Utilisateur();
         
 
         try {
             connexion = daoFactory.getConnection();
-            preparedStatement = initialisationRequetePreparee( connexion, sql, false, objets );
+            preparedStatement = initialisationRequetePreparee(connexion, sql, false, objets );
             resultSet = preparedStatement.executeQuery();
             /* Parcours de la ligne de données retournée dans le ResultSet */
             if ( resultSet.next() ) {
-                utilisateur = map( resultSet );
+                utilisateur = map(resultSet);
+            	
             }
         } catch ( SQLException e ) {
             throw new DAOException( e );
@@ -84,8 +86,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
      */
     private static Utilisateur map(ResultSet resultSet ) throws SQLException {
         Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setId(resultSet.getInt("id")); 
-        utilisateur.setEmail(resultSet.getString( "email" ));
+        utilisateur.setId(resultSet.getInt("idUser")); 
+        utilisateur.setEmail(resultSet.getString("email"));
         utilisateur.setMotdepasse(resultSet.getString( "motdepasse" ));
         utilisateur.setNom(resultSet.getString( "nom" ));
         utilisateur.setPseudo(resultSet.getString("pseudo"));
