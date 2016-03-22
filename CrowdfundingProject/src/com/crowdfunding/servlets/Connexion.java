@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.crowdfunding.beans.ConnexionForm;
 import com.crowdfunding.beans.Utilisateur;
+import com.crowdfunding.dao.DAOFactory;
 import com.crowdfunding.dao.UtilisateurDao;
 
 
@@ -22,6 +23,11 @@ public class Connexion extends HttpServlet {
     public static final String VUE1              = "/WEB-INF/connexion.jsp";
     public static final String VUE2              = "/WEB-INF/pageUtilisateur.jsp";
 	private UtilisateurDao     utilisateurDao;
+
+
+    public void init() throws ServletException{
+    	this.utilisateurDao = ( (DAOFactory) getServletContext().getAttribute( "daofactory" ) ).getUtilisateurDao();
+    }
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         this.getServletContext().getRequestDispatcher(VUE1).forward( request, response );

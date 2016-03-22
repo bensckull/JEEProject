@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class UtilisateurDaoImpl implements UtilisateurDao {
 
-	private static final String SQL_SELECT_PAR_EMAIL = "SELECT nom, prenom, pseudo, motdepasse, idUser, dateInscription FROM utilisateur WHERE email = 'divine@email.com'";
+	private static final String SQL_SELECT_PAR_EMAIL = "SELECT * FROM utilisateur WHERE email = ?";
     private static final String SQL_INSERT           = "INSERT INTO utilisateur (nom, prenom, pseudo, email, motdepasse) VALUES (?, ?, ?, ?, ?)";
 
     private DAOFactory          daoFactory;

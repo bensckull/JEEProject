@@ -57,6 +57,7 @@
 	                <c:if test="${!empty sessionScope.sessionUtilisateur}">
 	                    <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
 	                    <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur.email}</p>
+	                    <c:redirect url="/pageUtilisateur"/>
 	                </c:if>
                 </div>
                 
