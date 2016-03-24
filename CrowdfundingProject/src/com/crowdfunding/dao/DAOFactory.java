@@ -73,7 +73,11 @@ public class DAOFactory {
      * Méthodes de récupération de l'implémentation des différents DAO (un seul
      * pour le moment)
      */
-    public UtilisateurDao getUtilisateurDao() {
-        return new UtilisateurDaoImpl( this );
-    }
+     public UtilisateurDao getUtilisateurDao() {
+         return new UtilisateurDaoImpl( this );
+     }
+     
+     public ProjetDao getProjetDao() {
+         return new ProjetDaoImpl( this );
+     }
 }
