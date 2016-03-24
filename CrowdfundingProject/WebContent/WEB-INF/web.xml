@@ -49,12 +49,12 @@
     <url-pattern>/listeProjets</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Projet</servlet-name>
-    <servlet-class>com.crowdfunding.servlets.Projet</servlet-class>
+    <servlet-name>ProjetServlet</servlet-name>
+    <servlet-class>com.crowdfunding.servlets.ProjetServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Projet</servlet-name>
-    <url-pattern>/projet</url-pattern>
+    <servlet-name>ProjetServlet</servlet-name>
+    <url-pattern>/createProjet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>PageUtilisateur</servlet-name>
@@ -63,15 +63,6 @@
   <servlet-mapping>
     <servlet-name>PageUtilisateur</servlet-name>
     <url-pattern>/pageUtilisateur</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>createProjet</servlet-name>
-    <servlet-class>com.crowdfunding.servlets.createProjet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>createProjet</servlet-name>
-    <url-pattern>/nouveauProjet</url-pattern>
   </servlet-mapping>
   
   <listener>

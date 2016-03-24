@@ -32,6 +32,7 @@
 </head>
 <body>
 		<%@ include file="menu.jsp" %>
+		<form method="post" action="ProjetServlet">
 		<fieldset>
                 <legend>Création projet</legend>
                 
@@ -82,7 +83,13 @@
 		        </script>
                 
                 </div>
-                
+                <div class="row">
+                	<div class="col-lg-offset-3 col-lg-3">
+                	<input type="submit" value="Créer" class="sansLabel" />
+                	</div>
+                </div>
         </fieldset>
+                </form>
+        
 </body>
 </html>
