@@ -40,7 +40,7 @@ public class Inscription extends HttpServlet {
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );
         request.setAttribute( ATT_USER, utilisateur );
-        this.getServletContext().getRequestDispatcher(VUE2).forward(request, response);
+        this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 	}
 
 }

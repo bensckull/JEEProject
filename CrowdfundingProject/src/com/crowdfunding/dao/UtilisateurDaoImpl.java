@@ -58,7 +58,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Utilisateur utilisateur = new Utilisateur();
+        Utilisateur utilisateur = null;
         
 
         try {
