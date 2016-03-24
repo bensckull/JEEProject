@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -13,9 +14,19 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="/CrowdfundingProject/">Accueil</a></li>
-            <li><a href="/CrowdfundingProject/inscription">Inscription</a></li>
-            <li><a href="/CrowdfundingProject/connexion">Connexion</a></li>
-            <li><a href="/CrowdfundingProject/deconnexion">Deconnexion</a></li>
+            
+            <c:choose>
+		      <c:when test="${!empty sessionScope.sessionUtilisateur}">
+		  		<li><a href="/CrowdfundingProject/deconnexion">Deconnexion</a></li>
+		  		<li><a href="/CrowdfundingProject/createProjet">Nouveau Projet</a></li>
+		      </c:when>
+		
+		      <c:otherwise>
+		      	<li><a href="/CrowdfundingProject/inscription">Inscription</a></li>
+		      	<li><a href="/CrowdfundingProject/connexion">Connexion</a></li>
+		      </c:otherwise>
+            </c:choose>
+            
             <li><a href="/CrowdfundingProject/listeUtilisateurs">Utilisateurs récents</a></li>
             <li><a href="/CrowdfundingProject/listeProjets">Projets</a></li>
           </ul>
