@@ -1,6 +1,5 @@
 package com.crowdfunding.dao;
 import static com.crowdfunding.dao.DAOUtilitaire.*;
-import com.crowdfunding.beans.Utilisateur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,8 +9,8 @@ import com.crowdfunding.beans.Projet;
 public class ProjetDaoImpl implements ProjetDao {
 	private static final String SQL_SELECT_PAR_TYPE = "SELECT * FROM projet WHERE typeProject = ?";
 	private static final String SQL_SELECT_PAR_UTILISATEUR = "SELECT * FROM projet WHERE idUser = ?";
-    private static final String SQL_INSERT           = "INSERT INTO projet (nom, typeProject, montantTotal, dateFin, description) VALUES (?, ?, ?, ?, ?)";
-
+    private static final String SQL_INSERT           = "INSERT INTO projet (idPromoteur, nom, typeProject, montantTotal, dateFin, description) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String SQL_INSERT_PARTICIPANT = "INSERT INTO participant (idParticipant, idProjet, montantDonne) VALUES (?, ?, ?)";
     private DAOFactory          daoFactory;
     
     public ProjetDaoImpl(DAOFactory daoFactory) {
@@ -19,12 +18,12 @@ public class ProjetDaoImpl implements ProjetDao {
     }
 
 	@Override
-	public void creerProjet(Projet p) throws DAOException {
+	public void creerProjet(Projet p, int idUser) throws DAOException {
 		Connection connexion = null;
         PreparedStatement preparedStatement = null;
         try {
             connexion = daoFactory.getConnection();
-            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, true, p.getNom(), p.getTypeProject(), p.getMontantTotal(), p.getDateFin(), p.getDescription());
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_INSERT, false, idUser, p.getNom(), p.getTypeProject(), p.getMontantTotal(), p.getDateFin(), p.getDescription());
             int statut = preparedStatement.executeUpdate();
             if ( statut == 0 ) {
                 throw new DAOException( "Échec de la création du projet, aucune ligne ajoutée dans la table." );
@@ -39,14 +38,84 @@ public class ProjetDaoImpl implements ProjetDao {
 
 	@Override
 	public Projet chercherParType(String type) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Projet p = null;
+        
+
+        try {
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee(connexion, SQL_SELECT_PAR_TYPE, false, type);
+            resultSet = preparedStatement.executeQuery();
+            if ( resultSet.next() ) {
+                p = map(resultSet);
+            	
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+        return p;
+
 	}
 
 	@Override
 	public Projet chercherParUtilisateur(int idUser) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Projet p = null;
+        
+
+        try {
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee(connexion, SQL_SELECT_PAR_UTILISATEUR, false, idUser);
+            resultSet = preparedStatement.executeQuery();
+            if ( resultSet.next() ) {
+                p = map(resultSet);
+            	
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+        return p;
 	}
 
+	@Override
+	public void participation(int idUser, int idProject, int montant) throws DAOException {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee(connexion, SQL_INSERT_PARTICIPANT, true, idUser, idProject, montant);
+            int statut = preparedStatement.executeUpdate();
+            if ( statut == 0 ) {
+                throw new DAOException( "Échec de la création du projet, aucune ligne ajoutée dans la table." );
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses(preparedStatement, connexion );
+        }
+
+	}
+
+	private static Projet map(ResultSet resultSet ) throws SQLException {
+	   Projet p = new Projet();
+	   p.setNom(resultSet.getString("nom"));
+	   p.setTypeProject(resultSet.getString("typeProject"));
+	   p.setDateFin(resultSet.getTimestamp("dateFin"));
+	   p.setMontantRecolte(resultSet.getInt("montantRecolte"));
+	   p.setMontantTotal(resultSet.getInt("montantTotal"));
+	   p.setDescription(resultSet.getString("description"));
+	   p.setIdProjet(resultSet.getInt("idProjet"));
+	   p.setIdPromoteur(resultSet.getInt("idPromoteur"));
+	   return p;
+	   
+	   
+	}
 }
