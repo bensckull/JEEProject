@@ -3,6 +3,7 @@ package com.crowdfunding.beans;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,20 @@ public class ProjetValidation {
 	private String              resultat;
 	private Map<String, String> erreurs          = new HashMap<String, String>();
 	private ProjetDao      projetDao;
+	
+	public static Timestamp convStrToTimestamp(String str_date) {
+	    try {
+	      DateFormat formatter;
+	      formatter = new SimpleDateFormat("dd/MM/yyyy");
+	      Date date = (Date) formatter.parse(str_date);
+	      java.sql.Timestamp timeStampDate = new Timestamp(date.getTime());
+
+	      return timeStampDate;
+	    } catch (ParseException e) {
+	      System.out.println("Exception :" + e);
+	      return null;
+	    }
+	}
 	
     public ProjetValidation( ProjetDao projet ) {
         this.projetDao = projet;
