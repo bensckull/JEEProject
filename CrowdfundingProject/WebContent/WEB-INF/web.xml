@@ -64,7 +64,14 @@
     <servlet-name>PageUtilisateur</servlet-name>
     <url-pattern>/pageUtilisateur</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>Participation</servlet-name>
+    <servlet-class>com.crowdfunding.servlets.Participation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Participation</servlet-name>
+    <url-pattern>/participation</url-pattern>
+  </servlet-mapping>
   <listener>
     <listener-class>com.crowdfunding.config.InitialisationDaoFactory</listener-class>
   </listener>

@@ -21,7 +21,7 @@ public class ProjetServlet extends HttpServlet {
 	public static final String ATT_FORM         = "projetValidation";
 	public static final String ATT_PROJET         = "projet";
 	public static final String VUE1             = "/WEB-INF/createProjet.jsp";
-	public static final String VUE2             = "/WEB-INF/projet.jsp";
+	public static final String VUE2             = "/WEB-INF/participation.jsp";
 	
 	private ProjetDao     projetDao;
     
@@ -31,7 +31,7 @@ public class ProjetServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		this.getServletContext().getRequestDispatcher(VUE2).forward(request, response);
+		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,11 +39,7 @@ public class ProjetServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		Utilisateur u = (Utilisateur) session.getAttribute("sessionUtilisateur");
-
-        /* Traitement de la requête et récupération du bean en résultant */
 		Projet projet = form.inscrireProjet( request, u.getId());
-
-        /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, form );
         request.setAttribute(ATT_PROJET, projet);
         this.getServletContext().getRequestDispatcher(VUE2).forward(request, response);

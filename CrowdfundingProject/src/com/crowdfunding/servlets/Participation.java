@@ -12,7 +12,7 @@ import com.crowdfunding.beans.Utilisateur;
 import com.crowdfunding.dao.DAOFactory;
 import com.crowdfunding.dao.ProjetDao;
 
-@WebServlet("/participation")
+@WebServlet("/Participation")
 public class Participation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CONF_DAO_FACTORY = "daofactory";
@@ -30,9 +30,15 @@ public class Participation extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 		Utilisateur u = (Utilisateur) session.getAttribute("sessionUtilisateur");
-		projetDao.participation(u.getId(),(int) request.getAttribute("idUser"),(int) request.getAttribute("montant"));
+		System.out.println(u.toString());
+		
+		projetDao.participation(u.getId(),Integer.parseInt(request.getParameter("idUser")),Integer.parseInt(request.getParameter("montant")));
+		
+		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
+
 	}
 
 }

@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 @SuppressWarnings("serial")
 public class Projet implements java.io.Serializable{
 
-	private int idProjet;
 	public int getIdProjet() {
 		return idProjet;
 	}
@@ -69,5 +68,6 @@ public class Projet implements java.io.Serializable{
 	private String description;
 	private int montantRecolte;
 	private int nbreParticipant;
-	
+	private int idProjet;
+
 }
