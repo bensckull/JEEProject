@@ -7,35 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.crowdfunding.dao.DAOFactory;
+import com.crowdfunding.dao.ProjetDao;
+
 /**
  * Servlet implementation class ListeProjets
  */
 @WebServlet("/ListeProjets")
 public class ListeProjets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ListeProjets() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	public static final String CONF_DAO_FACTORY = "daofactory";
+	private ProjetDao     projetDao;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	public void init() throws ServletException{
+    	this.projetDao = ( (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getProjetDao();
+    }
+	
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+    request.setAttribute("listeProjets", projetDao.listeProjets(10));
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/listeProjets.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }
