@@ -47,7 +47,7 @@
               <div class="row">
 				  <div class="container">
 				    <h3>Participer</h3>
-				    <p><a class="btn btn-info btn-lg" role="button">Cliquez Maintenant !  <span class="glyphicon glyphicon-euro"></span></a></p>
+				    <p><a class="btn btn-info btn-lg" role="button" href="/CrowdfundingProject/participation">Cliquez Maintenant !  <span class="glyphicon glyphicon-euro"></span></a></p>
 				  </div>
               </div>
               <div class="row">
