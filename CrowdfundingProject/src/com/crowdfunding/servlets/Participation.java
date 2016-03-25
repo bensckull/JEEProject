@@ -12,11 +12,11 @@ import com.crowdfunding.beans.Utilisateur;
 import com.crowdfunding.dao.DAOFactory;
 import com.crowdfunding.dao.ProjetDao;
 
-@WebServlet("/Participation")
+@WebServlet("/participation")
 public class Participation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CONF_DAO_FACTORY = "daofactory";
-	public static final String VUE1             = "/WEB-INF/projet.jsp";
+	public static final String VUE1             = "/WEB-INF/participation.jsp";
 	private ProjetDao     projetDao;
 
     public void init() throws ServletException{
