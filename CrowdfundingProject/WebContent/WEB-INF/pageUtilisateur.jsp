@@ -79,12 +79,16 @@
      		<h3>Projets Contribués</h3>
      	</div>
      </div>
-     
-     	<div class="row">
-     	<div class="col-lg-offset-1 col-lg-3">
-     		<li>Liste des projets contibués </li>
-     	</div>
-     </div>
+        <section class="col-lg-6">
+        	<br>
+        	<c:forEach items="${listeProjetsParUtilisateur}" var="projet" varStatus="status">
+    			<li>Projet n° <c:out value="${status.count}" /> : <c:out value="${projet.nom}" /> 
+    				<ol> Type : <c:out value="${projet.typeProject}" /></ol>
+    				<ol>Description : <c:out value="${projet.description}" /></ol>
+       				<ol>Date de fin de collecte : <c:out value="${projet.dateFin}" /></ol>    				
+    			</li>
+			</c:forEach>
+        </section>
      
 
 </body>
