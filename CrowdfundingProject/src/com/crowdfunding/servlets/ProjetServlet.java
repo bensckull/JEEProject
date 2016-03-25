@@ -31,7 +31,7 @@ public class ProjetServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
+		this.getServletContext().getRequestDispatcher(VUE2).forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

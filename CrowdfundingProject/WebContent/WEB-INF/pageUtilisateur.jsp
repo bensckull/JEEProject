@@ -16,6 +16,8 @@
 </head>
 
 <body>
+
+
 	 <%@ include file="menu.jsp" %>
 	 <legend>Page Utilisateur</legend>
 	 
@@ -26,6 +28,12 @@
 	        	<p class="succes">Nom : ${sessionScope.sessionUtilisateur.nom}</p>
 	        </c:if>
      	</div>
+     	
+     	<form method="post" action="edit">
+	     	<div class="col-lg-offset-3 col-lg-3">
+	     		<a type="submit" value="edit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-pencil"></span> Editer Profil</a>
+	     	</div>
+     	</form>
      </div>
      
      <div class="row">
