@@ -35,9 +35,10 @@
       </header>
       <div class="row">
         <section class="col-sm-10">
-          <d>Image de présentation du projet</d>
+          <d name="idprojet" >id projet : ${projet.idProjet}</d>
           <div class="row">
             <article class="col-sm-10">
+              <p>Description :</p>
               <p>${projet.description}</p>
             </article>
             <div class="col-lg-2">

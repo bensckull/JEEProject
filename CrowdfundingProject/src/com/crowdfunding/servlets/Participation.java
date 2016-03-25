@@ -25,6 +25,7 @@ public class Participation extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 
 	}
@@ -33,9 +34,11 @@ public class Participation extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		Utilisateur u = (Utilisateur) session.getAttribute("sessionUtilisateur");
-		System.out.println(u.toString());
+		System.out.println(Integer.parseInt(request.getParameter("idprojet")));
 		
-		projetDao.participation(u.getId(),Integer.parseInt(request.getParameter("idUser")),Integer.parseInt(request.getParameter("montant")));
+		
+		
+		projetDao.participation(u.getId(),Integer.parseInt(request.getParameter("idprojet")),Integer.parseInt(request.getParameter("montant")));
 		
 		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 
