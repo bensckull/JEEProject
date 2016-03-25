@@ -44,7 +44,7 @@
                 	<div class="col-lg-offset-1 col-lg-3">
 						<label for="nom">Nom du projet:</label>
 		                <input type="text" class="form-control"  id="nom" name="nom" value="<c:out value=""/>" size="20" maxlength="20" />
-		                <span class="erreur">${form.erreurs['nom']}</span>
+		                <span class="erreur">${projetValidation.erreurs['nom']}</span>
 		                
                 	</div>
                 </div>
@@ -53,7 +53,7 @@
                 	<div class="col-lg-offset-1 col-lg-3">
 						<label for="type">type :</label>
 		                <input type="text" class="form-control"  id="type" name="type" value="<c:out value=""/>" size="20" maxlength="20" />
-		                <span class="erreur">${form.erreurs['type']}</span>
+		                <span class="erreur">${projetValidation.erreurs['type']}</span>
                 	</div>
                 </div>
                 
@@ -61,7 +61,7 @@
                 	<div class="col-lg-offset-1 col-lg-3">
 						<label for="montant">Montant total du projet :</label>
 		                <input type="text" class="form-control"  id="montant" name="montant" value="<c:out value=""/>" size="20" maxlength="20" />
-                		<span class="erreur">${form.erreurs['montant']}</span>
+                		<span class="erreur">${projetValidation.erreurs['montant']}</span>
                 	</div>
                 </div>
                 
@@ -69,7 +69,7 @@
                 	<div class="col-lg-offset-1 col-lg-3">
 						<label for="date">date de fin :</label>
 		                <input type="text" class="form-control"  id="date" name="date" value="<c:out value=""/>" size="20" maxlength="20" />
-                		<span class="erreur">${form.erreurs['date']}</span>
+                		<span class="erreur">${projetValidation.erreurs['date']}</span>
                 	</div>
                 </div>
 				<script type="text/javascript">
@@ -81,8 +81,8 @@
                 	<div class="col-lg-offset-1 col-lg-3">
 		                <div class="form-group">
 						  <label for="description">Description du projet:</label>
-						  <textarea class="form-control" rows="5" id="comment" size="20"></textarea>
-						<span class="erreur">${form.erreurs['date']}</span>
+						  <textarea class="form-control" name="description" rows="5" id="description" size="20"></textarea>
+						<span class="erreur">${projetValidation.erreurs['description']}</span>
 						
 						</div>
                 	</div>
@@ -93,7 +93,7 @@
                 	<input type="submit" value="Créer" class="sansLabel" />
                 	</div>
                 </div>
-                <div class="col-lg-offset-1 col-lg-3">${form.resultat}</div>
+                <div class="col-lg-offset-1 col-lg-3">${projetValidation.resultat}</div>
                 
         </fieldset>
         </form>

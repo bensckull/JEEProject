@@ -83,26 +83,19 @@ public class ProjetValidation {
         }
     }
     
-    @SuppressWarnings("null")
 	public Projet inscrireProjet( HttpServletRequest request, int id) {
         int montant = getValeurChampInt( request, CHAMP_MONTANT );
         String description = getValeurChampString( request, CHAMP_DESCRIPTION );
         String typeProject = getValeurChampString(request, CHAMP_TYPE);
-        String nom = getValeurChampString(request, CHAMP_NOM);
-        
-        DateFormat dateFormat = null;
+        String nom = getValeurChampString(request, CHAMP_NOM);        
         Timestamp date= convStrToTimestamp(request.getParameter(CHAMP_DATE));
-        Date parsedDate;
         Projet projet = new Projet();
-
-       
-        
+    	projet.setDateFin(date);
         try {
         	traiterNom( nom, projet );
         	traiterType( typeProject, projet );
         	traiterDescription(description, projet);
         	traiterMontant(montant,projet);
-        	projet.setDateFin(date);
         	
             if ( erreurs.isEmpty() ) {
             	projetDao.creerProjet( projet, id);
@@ -120,12 +113,15 @@ public class ProjetValidation {
     
     private void validationMontant(int m) throws FormValidationException{
     	if(m < 500){
-    		throw new FormValidationException("Vous ne pouvez déposer que des projets d'un montant de 500 euros");
+    		throw new FormValidationException("Vous ne pouvez déposer que des projets d'un montant de 500 euros minimum");
     	}
     }
     private void validationNom( String nom ) throws FormValidationException {
         if ( nom != null && nom.length() < 3 ) {
             throw new FormValidationException( "Le nom du projet doit contenir au moins 3 caractères." );
+        }
+        if ( nom == null) {
+            throw new FormValidationException( "Veuillez entrer le nom du projet" );
         }
     }
     
@@ -134,11 +130,17 @@ public class ProjetValidation {
         if ( type != null && type.length() < 3 ) {
             throw new FormValidationException( "Le type du projet doit contenir au moins 3 caractères." );
         }
+        if ( type ==null ) {
+            throw new FormValidationException( "Renseigner le type du projet" );
+        }
     }
     
     private void validationDescription( String description ) throws FormValidationException {
         if ( description != null && description.length() < 3 ) {
             throw new FormValidationException( "Description de plus de 3 caractères." );
+        }
+        if ( description == null || description.isEmpty() ) {
+            throw new FormValidationException( "Veuillez décrire votre projet" );
         }
     }
     private void traiterDescription( String description, Projet projet ) {
