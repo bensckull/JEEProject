@@ -6,9 +6,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <style type="text/css">
      /* Style pour l'exemple*/
-      article.col-sm-10, nav.col-sm-2 {
-        line-height: 100px;
-      }
       body {
         		padding-top: 60px;
         		/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
@@ -23,7 +20,7 @@
     <%@ include file="menu.jsp" %>
     <div class="container">
       <header class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
         		<div class="container">
 	              		<div class="bs-example">
     						<div class="progress">
@@ -44,28 +41,25 @@
               <p>${projet.description}</p>
             </article>
             <div class="col-lg-2">
-              <div class="row">
-				  <div class="container">
 				   <!-- <h3>Participer</h3> --> 
-				    <form method="post" action="participation">
-            			<fieldset>
-	                	<legend>Participer</legend>
-	                	<div class="col-lg-offset-1 col-lg-3">
-		                	<label for="montant">Montant a donner : </label>
-		                	<input type="text" id="montant" name="montant" class="form-control" value="<c:out value=""/>" size="20" maxlength="60" />
-		                	<input type="hidden" id="idUser" name="idUser" value="${projet.idProjet}" />
-		                </div>
-		                <br>
-		                <div class="row">
-		                	<div class="col-lg-offset-1 col-lg-1">
-		                	<p><input class="btn btn-info btn-lg" type="submit" value="Participer" class="sansLabel" />
-		                	<span class="glyphicon glyphicon-euro"></span></p>
-		                </div>  
-		                </div>              
-           		 	</fieldset>
+			    <form method="post" action="participation">
+           			<fieldset>
+           			<div class="row">
+                	<h3>Participer</h3>
+	                <div class="col-lg-13">
+	                	<label for="montant">Montant a donner : </label>
+	                	<input type="text" id="montant" name="montant" class="form-control" value="<c:out value=""/>" size="20" maxlength="60" />
+	                	<input type="hidden" id="idUser" name="idUser" value="${projet.idProjet}" />
+	                </div>
+	                </div>
+	                <br>
+	                <div class="row">
+	                <div class="col-lg-1">
+	                	<p><input class="btn btn-info btn-lg" type="submit" value="Participer" class="sansLabel" />
+	                </div>  
+	                </div>              
+          		 	</fieldset>
        			 </form>
-				  </div>
-              </div>
               <div class="row">
                  <li><d>${projet.nbreParticipant} Contributeurs </d></li>
                  <li><d>${projet.montantRecolte} € récoltés</d></li>
