@@ -10,5 +10,6 @@ public interface ProjetDao {
 	Projet chercherParUtilisateur(int idUser) throws DAOException;
 	List<Projet> listeProjets(int limit) throws DAOException;
 	void participation(int idUser, int idProject, int montant) throws DAOException;
+	int countParticipants(int idProject) throws DAOException;
 
 }

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.crowdfunding.beans.Projet;
 
 public class ProjetDaoImpl implements ProjetDao {
@@ -15,9 +14,10 @@ public class ProjetDaoImpl implements ProjetDao {
 	private static final String SQL_SELECT_PAR_UTILISATEUR = "SELECT * FROM projet WHERE idUser = ?";
     private static final String SQL_INSERT           = "INSERT INTO projet (idPromoteur, nom, typeProject, montantTotal, dateFin, description) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String SQL_INSERT_PARTICIPANT = "INSERT INTO participant (idParticipant, idProjet, montantDonne) VALUES (?, ?, ?)";
+    private static final String SQL_SELECT_PARTICIPANT = "SELECT * FROM participant WHERE idProjet = ?";
     private DAOFactory          daoFactory;
     
-    public ProjetDaoImpl(DAOFactory daoFactory) {
+	public ProjetDaoImpl(DAOFactory daoFactory) {
     	this.daoFactory = daoFactory;
     }
 
@@ -145,5 +145,27 @@ public class ProjetDaoImpl implements ProjetDao {
             fermeturesSilencieuses( resultSet, preparedStatement, connexion );
         }
         return listP;
+	}
+
+	@Override
+	public int countParticipants(int idProject) throws DAOException {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int nbre=0;
+
+        try {
+            connexion = daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee(connexion, SQL_SELECT_PARTICIPANT, false, idProject);
+            resultSet = preparedStatement.executeQuery();
+            while( resultSet.next()){
+                nbre++;
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( resultSet, preparedStatement, connexion );
+        }
+        return nbre;
 	}
 }

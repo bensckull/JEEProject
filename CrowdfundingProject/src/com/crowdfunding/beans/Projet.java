@@ -54,6 +54,13 @@ public class Projet implements java.io.Serializable{
 	public void setMontantRecolte(int montantRecolte) {
 		this.montantRecolte = montantRecolte;
 	}
+	public int getNbreParticipant() {
+		return nbreParticipant;
+	}
+	public void setNbreParticipant(int nbreParticipant) {
+		this.nbreParticipant = nbreParticipant;
+	}
+	
 	private int idPromoteur;
 	private String nom;
 	private String typeProject;
@@ -61,4 +68,6 @@ public class Projet implements java.io.Serializable{
 	private Timestamp dateFin;
 	private String description;
 	private int montantRecolte;
+	private int nbreParticipant;
+	
 }

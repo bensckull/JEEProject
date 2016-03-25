@@ -41,7 +41,7 @@
           <d>Image de présentation du projet</d>
           <div class="row">
             <article class="col-sm-10">
-              <d>Présentation détaiilé du projet</d>
+              <d>${projet.description}</d>
             </article>
             <div class="col-lg-2">
               <div class="row">

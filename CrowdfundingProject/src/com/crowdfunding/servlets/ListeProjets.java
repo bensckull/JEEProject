@@ -1,12 +1,15 @@
 package com.crowdfunding.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.crowdfunding.beans.Projet;
 import com.crowdfunding.dao.DAOFactory;
 import com.crowdfunding.dao.ProjetDao;
 
@@ -24,14 +27,17 @@ public class ListeProjets extends HttpServlet {
     }
 	
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-    request.setAttribute("listeProjets", projetDao.listeProjets(10));
-		
+		List< Projet> listeP = projetDao.listeProjets(10);
+		System.out.println("Nombre de contributeur"+projetDao.countParticipants(listeP.get(0).getIdProjet()));
+
+    	request.setAttribute("listeProjets", listeP);
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/listeProjets.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/listeProjets.jsp").forward(request, response);
+
 	}
 
 }
