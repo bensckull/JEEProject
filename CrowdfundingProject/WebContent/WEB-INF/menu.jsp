@@ -19,6 +19,7 @@
 		      <c:when test="${!empty sessionScope.sessionUtilisateur}">
 		  		<li><a href="/CrowdfundingProject/deconnexion">Deconnexion</a></li>
 		  		<li><a href="/CrowdfundingProject/createProjet">Nouveau Projet</a></li>
+		  		<li><a href="/CrowdfundingProject/pageUtilisateur">Profil</a></li>
 		      </c:when>
 		
 		      <c:otherwise>
@@ -27,7 +28,6 @@
 		      </c:otherwise>
             </c:choose>
             
-            <li><a href="/CrowdfundingProject/listeUtilisateurs">Utilisateurs récents</a></li>
             <li><a href="/CrowdfundingProject/listeProjets">Projets</a></li>
           </ul>
         </div><!--/.nav-collapse -->

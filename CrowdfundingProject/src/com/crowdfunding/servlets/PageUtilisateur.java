@@ -18,7 +18,8 @@ import com.crowdfunding.dao.ProjetDao;
 @WebServlet("/PageUtilisateur")
 public class PageUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String VUE             = "/WEB-INF/pageUtilisateur.jsp";
+	public static final String VUE1             = "/WEB-INF/pageUtilisateur.jsp";
+	public static final String VUE2             = "/WEB-INF/editUser.jsp";
 	public static final String CONF_DAO_FACTORY = "daofactory";
 	private ProjetDao     projetDao;
 
@@ -37,7 +38,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	 	
 	 	request.setAttribute("listeProjetsParUtilisateur", projetDao.listeProjetsParUtilisateur(u.getId()));
 	
-		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 	}
 
 	/**
@@ -47,7 +48,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 
 		
 		
-		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+		this.getServletContext().getRequestDispatcher(VUE2).forward(request, response);
 	}
 
 }
