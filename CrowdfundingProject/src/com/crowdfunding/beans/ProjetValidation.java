@@ -70,7 +70,12 @@ public class ProjetValidation {
     }
     
     private static int getValeurChampInt( HttpServletRequest request, String nomChamp ) {
-        int valeur = Integer.parseInt(request.getParameter( nomChamp ));
+    	int valeur;
+    	if(request.getParameter( nomChamp ) != null && request.getParameter( nomChamp ) != ""){
+    		valeur = Integer.parseInt(request.getParameter( nomChamp ));
+    	}else{
+    		valeur = 0;
+    	}
         if ( valeur <=0 ) {
             return 0;
         } else {
@@ -84,24 +89,12 @@ public class ProjetValidation {
         String description = getValeurChampString( request, CHAMP_DESCRIPTION );
         String typeProject = getValeurChampString(request, CHAMP_TYPE);
         String nom = getValeurChampString(request, CHAMP_NOM);
-        Date date=new Date(request.getParameter(CHAMP_DATE));
         
         DateFormat dateFormat = null;
-        Timestamp date=null;
+        Timestamp date= convStrToTimestamp(request.getParameter(CHAMP_DATE));
         Date parsedDate;
         Projet projet = new Projet();
-        
-        Timestamp timestamp = new Timestamp(date.getTime());//instead of date put your converted date
-        Timestamp myTimeStamp= timestamp;
-        try{
-             parsedDate = dateFormat.parse(request.getParameter(CHAMP_DATE));
-             date = new java.sql.Timestamp(parsedDate.getTime());
-             projet.setDateFin(date);
-        }catch(ParseException e){
-            setErreur( CHAMP_DATE, e.getMessage());
-        	resultat = "Erreur dans le renseignement de la date";
-        	e.printStackTrace();
-        }
+
        
         
         try {
