@@ -27,6 +27,7 @@ public class Participation extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 
 	}
@@ -45,7 +46,7 @@ public class Participation extends HttpServlet {
 			
 			this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
 		}
-
+		
 	}
 
 }
