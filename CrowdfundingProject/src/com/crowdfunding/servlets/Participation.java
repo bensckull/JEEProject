@@ -17,6 +17,8 @@ public class Participation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String CONF_DAO_FACTORY = "daofactory";
 	public static final String VUE1             = "/WEB-INF/participation.jsp";
+	public static final String VUE2             = "/WEB-INF/connexion.jsp";
+
 	private ProjetDao     projetDao;
 
     public void init() throws ServletException{
@@ -32,12 +34,17 @@ public class Participation extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		Utilisateur u = (Utilisateur) session.getAttribute("sessionUtilisateur");
-		System.out.println(u.toString());
-		
-		projetDao.participation(u.getId(),Integer.parseInt(request.getParameter("idUser")),Integer.parseInt(request.getParameter("montant")));
-		
-		this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
+		if(session == null){
+			this.getServletContext().getRequestDispatcher(VUE2).forward(request, response);
+
+		}else{
+			Utilisateur u = (Utilisateur) session.getAttribute("sessionUtilisateur");
+			System.out.println(u.toString());
+			
+			projetDao.participation(u.getId(),Integer.parseInt(request.getParameter("idUser")),Integer.parseInt(request.getParameter("montant")));
+			
+			this.getServletContext().getRequestDispatcher(VUE1).forward(request, response);
+		}
 
 	}
 

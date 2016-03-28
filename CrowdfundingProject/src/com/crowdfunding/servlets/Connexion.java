@@ -37,7 +37,7 @@ public class Connexion extends HttpServlet {
         
     	ConnexionForm form = new ConnexionForm(utilisateurDao);
         Utilisateur utilisateur = form.connecterUtilisateur(request);
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(true);
 
         /**
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean

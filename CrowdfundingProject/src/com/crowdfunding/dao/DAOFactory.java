@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 import com.crowdfunding.dao.UtilisateurDaoImpl;
+import com.crowdfunding.dao.ProjetDaoImpl;
 
 public class DAOFactory {
 
@@ -65,13 +66,13 @@ public class DAOFactory {
     }
 
     /* Méthode chargée de fournir une connexion à la base de données */
-     /* package */ Connection getConnection() throws SQLException {
+     /* package */ 
+    Connection getConnection() throws SQLException {
         return DriverManager.getConnection( url, username, password );
     }
 
     /*
-     * Méthodes de récupération de l'implémentation des différents DAO (un seul
-     * pour le moment)
+     * Méthodes de récupération de l'implémentation des différents DAO
      */
      public UtilisateurDao getUtilisateurDao() {
          return new UtilisateurDaoImpl( this );

@@ -21,7 +21,7 @@ public class ProjetServlet extends HttpServlet {
 	public static final String ATT_FORM         = "projetValidation";
 	public static final String ATT_PROJET         = "projet";
 	public static final String VUE1             = "/WEB-INF/createProjet.jsp";
-	public static final String VUE2             = "/WEB-INF/participation.jsp";
+	public static final String VUE2             = "/WEB-INF/accueil.jsp";
 	
 	private ProjetDao     projetDao;
     

@@ -31,7 +31,7 @@
      	
      	<form method="post" action="edit">
 	     	<div class="col-lg-offset-3 col-lg-3">
-	     		<a type="submit" value="edit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-pencil"></span> Editer Profil</a>
+	     		<!--<a type="submit" value="edit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-pencil"></span> Editer Profil</a> -->
 	     	</div>
      	</form>
      </div>
