@@ -34,17 +34,19 @@
         <section class="col-lg-6">
         	<br>
         	<c:forEach items="${listeProjets}" var="projet" varStatus="status">
-    			<li>Projet n° <c:out value="${status.count}" /> : <c:out value="${projet.nom}" /> 
-    				<ol> Type : <c:out value="${projet.typeProject}" /></ol>
-    				<ol>Description : <c:out value="${projet.description}" /></ol>
-       				<ol>Date de fin de collecte : <c:out value="${projet.dateFin}" /></ol>    				
-    			</li>
-			</c:forEach>
+        		<div class="jumbotron">
+    			<h3>Projet n° <c:out value="${status.count}" /> : <c:out value="${projet.nom}" /> </h3>
+    				<p> Type : <c:out value="${projet.typeProject}" /></p>
+    				<p>Description : <c:out value="${projet.description}" /></p>
+       				<p>Date de fin de collecte : <c:out value="${projet.dateFin}" /></p>    				
+    			</div>
+    			<br>
+			</c:forEach>	
         </section>
 
         <div class="col-lg-2">
           <div class="row">
-              <b>Ici mettre JSTLCore pour afficher le Nombre de projets en cours sur le site</b>
+              <b class="text-hide">Ici mettre JSTLCore pour afficher le Nombre de projets en cours sur le site</b>
           </div>
         </div>
       </div>
