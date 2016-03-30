@@ -9,6 +9,9 @@
         <style>
 	    	body {
 	        	padding-top: 60px;
+	        	color:black;
+				background-color:white;
+				background-image:url("http://frontalier.moncoachfinance.com/wp-content/uploads/2016/03/crowdfunding.jpg");
 	        	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 	   		}
 	    </style>

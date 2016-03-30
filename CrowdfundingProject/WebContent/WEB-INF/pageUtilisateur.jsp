@@ -49,7 +49,7 @@
      	<div class="col-lg-offset-1 col-lg-3">
      		<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
-	        	<p class="succes">Age : ${sessionScope.sessionUtilisateur.age}</p>
+	        	<p class="text-hide">Age : ${sessionScope.sessionUtilisateur.age}</p>
 	        </c:if>
      	</div>
      </div>
@@ -67,7 +67,7 @@
      	<div class="col-lg-offset-1 col-lg-3">
      		<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	        	<%-- Si l'utilisateur existe en session, alors on affiche son nom. --%>
-	        	<p class="succes">Adresse : ${sessionScope.sessionUtilisateur.adresse}</p>
+	        	<p class="text-hide">Adresse : ${sessionScope.sessionUtilisateur.adresse}</p>
 	        </c:if>
      	</div>
      </div>
@@ -84,7 +84,7 @@
      
      <div class="row">
      	<div class="col-lg-offset-1 col-lg-3">
-     		<h3>Projets Contribués</h3>
+     		<h3>Projets Créés</h3>
      	</div>
      </div>
         <section class="col-lg-6">
