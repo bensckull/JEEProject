@@ -15,7 +15,7 @@ public class ProjetDaoImpl implements ProjetDao {
 	private static final String SQL_SELECT_PAR_UTILISATEUR = "SELECT * FROM projet WHERE idUser = ?";
     private static final String SQL_INSERT           = "INSERT INTO projet (idPromoteur, nom, typeProject, montantTotal, dateFin, description) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String SQL_INSERT_PARTICIPANT = "INSERT INTO participant (idParticipant, idProjet, montantDonne) VALUES (?, ?, ?)";
-    private static final String SQL_SELECT_PARTICIPANT = "SELECT * FROM participant, projet WHERE participant.idPromoteur = participant.idParticipant AND idProjet = ?";
+    private static final String SQL_SELECT_PARTICIPANT = "SELECT * FROM participant WHERE idProjet = ?";
     private DAOFactory          daoFactory;
     
 	public ProjetDaoImpl(DAOFactory daoFactory) {

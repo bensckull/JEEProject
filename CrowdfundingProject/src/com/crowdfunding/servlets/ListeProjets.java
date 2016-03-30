@@ -28,7 +28,7 @@ public class ListeProjets extends HttpServlet {
 	
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List< Projet> listeP = projetDao.listeProjets(10);
-		System.out.println("Nombre de contributeur"+projetDao.countParticipants(listeP.get(0).getIdProjet()));
+		System.out.println("Nombre de contributeur "+projetDao.countParticipants(listeP.get(0).getIdProjet()));
 
     	request.setAttribute("listeProjets", listeP);
 
